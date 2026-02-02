@@ -19,7 +19,7 @@ green_tripdata_2020-04.csv
 3. How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?
   - 24648499
 
-   """
+   ```
    SELECT 
   SUM(row_count) as total_trips_2020
 FROM `curious-helix-484819-a6.taxi_dataset.__TABLES__`
@@ -27,17 +27,19 @@ WHERE table_id LIKE 'yellow_tripdata_2020_%'
   AND table_id NOT LIKE '%_ext'
   AND type = 1;
   
-  """
+  ```
 
 4. How many rows are there for the Green Taxi data for all CSV files in the year 2020?
 
 -  1734051
 
-   """
-      SELECT 
+   ```
+    SELECT 
   SUM(row_count) as total_trips_2020
 FROM `curious-helix-484819-a6.taxi_dataset.__TABLES__`
 WHERE table_id LIKE 'green_tripdata_2020_%'
   AND table_id NOT LIKE '%_ext'
   AND type = 1;
-   """
+  
+  ```
+
