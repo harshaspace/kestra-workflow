@@ -35,11 +35,34 @@ WHERE table_id LIKE 'yellow_tripdata_2020_%'
 
    ```
     SELECT 
-  SUM(row_count) as total_trips_2020
-FROM `curious-helix-484819-a6.taxi_dataset.__TABLES__`
-WHERE table_id LIKE 'green_tripdata_2020_%'
-  AND table_id NOT LIKE '%_ext'
-  AND type = 1;
+    SUM(row_count) as total_trips_2020
+    FROM `curious-helix-484819-a6.taxi_dataset.__TABLES__`
+    WHERE table_id LIKE 'green_tripdata_2020_%'
+    AND table_id NOT LIKE '%_ext'
+    AND type = 1;
   
   ```
+
+5. How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
+
+  -  1925152
+
+ ```
+   SELECT count(*)  
+   FROM `curious-helix-484819-a6.taxi_dataset.yellow_tripdata_2021_03` ;
+   
+  ```
+6. How would you configure the timezone to New York in a Schedule trigger?
+
+```
+
+  - id: yellow_schedule
+  type: io.kestra.plugin.core.trigger.Schedule
+  cron: "40 22 1 * *"
+  timezone: America/New_York
+  inputs:
+    taxi: yellow
+
+```
+
 
